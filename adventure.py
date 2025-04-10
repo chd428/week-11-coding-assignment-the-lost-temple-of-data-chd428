@@ -16,8 +16,8 @@ def load_artifact_data(excel_filepath):
         pandas.DataFrame: DataFrame containing the artifact data.
     """
 
-    sheet_name = pd.read_excel(excel_filepath)
-    return sheet_name
+    sheet = pd.read_excel(excel_filepath, sheet_name='Main Chamber', skiprows=3)
+    return sheet
     # Hint: Use pd.read_excel, specify sheet_name and skiprows
     # Replace 'pass' with your code
     # return the resulting DataFrame.
