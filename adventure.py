@@ -4,7 +4,7 @@
 import pandas as pd
 import re
 
-def load_artifact_data(excel_filepath):
+def load_artifact_data(EXCEL_FILEPATH):
     """
     Reads artifact data from a specific sheet ('Main Chamber') in an Excel file,
     skipping the first 3 rows.
@@ -16,17 +16,19 @@ def load_artifact_data(excel_filepath):
         pandas.DataFrame: DataFrame containing the artifact data.
     """
     try:
-        sheet_name = pd.read_excel(excel_filepath)
+        sheet_name = pd.read_excel(EXCEL_FILEPATH)
         return sheet_name
     except FileNotFoundError:
         print("Error: students.xlsc not found.")
+        return FileNotFoundError
     except Exception as e:
         print(f"An error occurred: {e}")
+        return e
     # Hint: Use pd.read_excel, specify sheet_name and skiprows
     # Replace 'pass' with your code
     # return the resulting DataFrame
 
-def load_location_notes(tsv_filepath):
+def load_location_notes(TSV_FILEPATH):
     """
     Reads location data from a Tab-Separated Value (TSV) file.
 
@@ -38,11 +40,11 @@ def load_location_notes(tsv_filepath):
     """
     # Hint: Use pd.read_csv, specify the separator for tabs ('\t')
     # Replace 'pass' with your code
-    dataframe = pd.read_csv(tsv_filepath)
+    dataframe = pd.read_csv(TSV_FILEPATH)
     return dataframe
     # return the resulting DataFrame
 
-def extract_journal_dates(journal_text):
+def extract_journal_dates(JOURNAL_TEXT):
     """
     Extracts all dates in MM/DD/YYYY format from the journal text.
 
@@ -56,11 +58,11 @@ def extract_journal_dates(journal_text):
     # Pattern idea: r"\d{2}/\d{2}/\d{4}"
     # Replace 'pass' with your code
     pattern = r"\d{2}/\d{2}/\d{4}"
-    found = re.findall(pattern, journal_text)
+    found = re.findall(pattern, JOURNAL_TEXT)
     return found
     # return the list of found dates
 
-def extract_secret_codes(journal_text):
+def extract_secret_codes(JOURNAL_TEXT):
     """
     Extracts all secret codes in AZMAR-XXX format (XXX are digits) from the journal text.
 
@@ -74,7 +76,7 @@ def extract_secret_codes(journal_text):
     # Pattern idea: r"AZMAR-\d{3}"
     # Replace 'pass' with your code
     pattern = r"AZMAR-\d{3}"
-    found = re.findall(pattern, journal_text)
+    found = re.findall(pattern, JOURNAL_TEXT)
     return found
     # return the list of found codes
 
