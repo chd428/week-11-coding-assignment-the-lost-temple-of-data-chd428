@@ -4,7 +4,7 @@
 import pandas as pd
 import re
 
-def load_artifact_data(EXCEL_FILEPATH):
+def load_artifact_data(excel_filepath):
     """
     Reads artifact data from a specific sheet ('Main Chamber') in an Excel file,
     skipping the first 3 rows.
@@ -16,7 +16,7 @@ def load_artifact_data(EXCEL_FILEPATH):
         pandas.DataFrame: DataFrame containing the artifact data.
     """
     try:
-        sheet_name = pd.read_excel(EXCEL_FILEPATH)
+        sheet_name = pd.read_excel(excel_filepath)
         return sheet_name
     except FileNotFoundError:
         print("Error: students.xlsc not found.")
@@ -28,7 +28,7 @@ def load_artifact_data(EXCEL_FILEPATH):
     # Replace 'pass' with your code
     # return the resulting DataFrame
 
-def load_location_notes(TSV_FILEPATH):
+def load_location_notes(tsv_filepath):
     """
     Reads location data from a Tab-Separated Value (TSV) file.
 
@@ -40,11 +40,11 @@ def load_location_notes(TSV_FILEPATH):
     """
     # Hint: Use pd.read_csv, specify the separator for tabs ('\t')
     # Replace 'pass' with your code
-    dataframe = pd.read_csv(TSV_FILEPATH)
+    dataframe = pd.read_csv(tsv_filepath)
     return dataframe
     # return the resulting DataFrame
 
-def extract_journal_dates(JOURNAL_TEXT):
+def extract_journal_dates(journal_text):
     """
     Extracts all dates in MM/DD/YYYY format from the journal text.
 
@@ -58,11 +58,11 @@ def extract_journal_dates(JOURNAL_TEXT):
     # Pattern idea: r"\d{2}/\d{2}/\d{4}"
     # Replace 'pass' with your code
     pattern = r"\d{2}/\d{2}/\d{4}"
-    found = re.findall(pattern, JOURNAL_TEXT)
+    found = re.findall(pattern, journal_text)
     return found
     # return the list of found dates
 
-def extract_secret_codes(JOURNAL_TEXT):
+def extract_secret_codes(journal_text):
     """
     Extracts all secret codes in AZMAR-XXX format (XXX are digits) from the journal text.
 
