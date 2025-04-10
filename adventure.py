@@ -1,8 +1,8 @@
 """CODE!!!!"""
 # Your code goes here
 
-import pandas as pd
 import re
+import pandas as pd
 
 def load_artifact_data(excel_filepath):
     """
@@ -15,7 +15,7 @@ def load_artifact_data(excel_filepath):
     Returns:
         pandas.DataFrame: DataFrame containing the artifact data.
     """
-    
+
     sheet_name = pd.read_excel(excel_filepath)
     return sheet_name
     # Hint: Use pd.read_excel, specify sheet_name and skiprows
