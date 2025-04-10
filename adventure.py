@@ -16,7 +16,7 @@ def load_artifact_data(excel_filepath):
         pandas.DataFrame: DataFrame containing the artifact data.
     """
 
-    sheet = pd.read_excel(excel_filepath, sheet_name='Main Chamber', skiprows=3)
+    sheet = pd.read_excel(excel_filepath, sheet_name='Main Chamber', skiprows=3) #reads excel sheet
     return sheet
     # Hint: Use pd.read_excel, specify sheet_name and skiprows
     # Replace 'pass' with your code
@@ -34,7 +34,7 @@ def load_location_notes(tsv_filepath):
     """
     # Hint: Use pd.read_csv, specify the separator for tabs ('\t')
     # Replace 'pass' with your code
-    dataframe = pd.read_csv(tsv_filepath, sep='\t')
+    dataframe = pd.read_csv(tsv_filepath, sep='\t') #reads the dataframe w/ seperator
     return dataframe
     # return the resulting DataFrame
 
@@ -51,8 +51,16 @@ def extract_journal_dates(journal_text):
     # Hint: Use re.findall with a raw string pattern for MM/DD/YYYY format.
     # Pattern idea: r"\d{2}/\d{2}/\d{4}"
     # Replace 'pass' with your code
-    pattern = r"\d{2}/\d{2}/\d{4}"
-    found = re.findall(pattern, journal_text)
+    pattern = r"(\d{2})/(\d{2})/(\d{4})"
+    found = [] #empty list
+    for i in re.finditer(pattern, journal_text): #iterates through found dates to check validity
+        months,days,years = i.groups()
+        #converts to ints
+        month = int(months)
+        day = int(days)
+        year = int(years)
+        if 1 <= month <= 12 and 1 <= day <= 31:#makes sure dates are valid
+            found.append(months + "/" +{days}+ "/" +{years}) #if date valid, add to found
     return found
     # return the list of found dates
 
@@ -70,7 +78,7 @@ def extract_secret_codes(journal_text):
     # Pattern idea: r"AZMAR-\d{3}"
     # Replace 'pass' with your code
     pattern = r"AZMAR-\d{3}"
-    found = re.findall(pattern, journal_text)
+    found = re.findall(pattern, journal_text) #finds valid codes
     return found
     # return the list of found codes
 
