@@ -34,7 +34,7 @@ def load_location_notes(tsv_filepath):
     """
     # Hint: Use pd.read_csv, specify the separator for tabs ('\t')
     # Replace 'pass' with your code
-    dataframe = pd.read_csv(tsv_filepath)
+    dataframe = pd.read_csv(tsv_filepath, sep='\t')
     return dataframe
     # return the resulting DataFrame
 
