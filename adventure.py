@@ -60,7 +60,7 @@ def extract_journal_dates(journal_text):
         day = int(days)
         year = int(years)
         if 1 <= month <= 12 and 1 <= day <= 31 and 1 <= year:#makes sure dates are valid
-            found.append(months + "/" +{days}+ "/" +{years}) #if date valid, add to found
+            found.append(months + "/" + days + "/" + years)#if date valid, add to found
     return found
     # return the list of found dates
 
