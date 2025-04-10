@@ -20,7 +20,7 @@ def load_artifact_data(excel_filepath):
     return sheet_name
     # Hint: Use pd.read_excel, specify sheet_name and skiprows
     # Replace 'pass' with your code
-    # return the resulting DataFrame
+    # return the resulting DataFrame.
 
 def load_location_notes(tsv_filepath):
     """
